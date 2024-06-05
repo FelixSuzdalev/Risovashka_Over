@@ -1,0 +1,89 @@
+﻿<Window x:Class="Risovashka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Risovashka"
+        xmlns:syncfusion ="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="LightGray">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Новый" Click="NewMenuItem_Click"/>
+                <MenuItem Header="Открыть" Click="OpenMenuItem_Click"/>
+                <MenuItem Header="Сохранить" Click="SaveMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Header="Выйти" Click="ExitMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Grid.Column="1" Grid.Row="1" Background="AliceBlue"></Label>
+        <DockPanel Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" >
+            <StackPanel Background="LightGray">
+                <TextBlock>Размер кисти</TextBlock>
+                <ComboBox x:Name="SizeBrush" Grid.Column="5" Grid.Row="1" SelectedIndex="1" SelectionChanged="SizeBrush_">>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="16"/>
+                    <ComboBoxItem Content="18"/>
+                    <ComboBoxItem Content="20"/>
+                    <ComboBoxItem Content="22"/>
+                    <ComboBoxItem Content="24"/>
+                    <ComboBoxItem Content="26"/>
+                    <ComboBoxItem Content="28"/>
+                    <ComboBoxItem Content="30"/>
+                    <ComboBoxItem Content="40"/>
+                    <ComboBoxItem Content="50"/>
+                    <ComboBoxItem Content="60"/>
+                    <ComboBoxItem Content="70"/>
+                </ComboBox>
+                <Button x:Name="Remove" Click="Clear_Click"  HorizontalAlignment="Left" Margin="27,2,0,0" VerticalAlignment="Center">
+                    <Image Source="/broom_120157.png" Height="20" Width="20"/>
+                </Button>
+                <ToggleButton Checked="Remove_Click" Unchecked="ToggleButton_Unchecked"  HorizontalAlignment="Left" Margin="0,-24,0,0">
+                    <Image Source="/eraser.png" Height="20" Width="20"/>
+                </ToggleButton>
+                <Button x:Name="filling" Click="Filling_Click"  HorizontalAlignment="Left" Margin="54,-24,0,0" VerticalAlignment="Center">
+                    <Image Source="/paint_16513759.png" Height="20" Width="20"/>
+                </Button>
+                <syncfusion:ColorPicker x:Name="ColorPicker" ColorChanged="ColorPicker_ColorChanged" Color="Black">
+                </syncfusion:ColorPicker>
+                <Button x:Name="Red" Background="Red" Width="20" Height="20" Click="Red_Click" HorizontalAlignment="Left" Margin="5,2,0,0"></Button>
+                <Button x:Name="Orange" Background="Orange" Width="20" Height="20" Click="Orange_Click" HorizontalAlignment="Left" Margin="27,-20,0,0"></Button>
+                <Button x:Name="Yellow" Background="Yellow" Width="20" Height="20" Click="Yellow_Click" HorizontalAlignment="Left" Margin="49,-20,0,0"></Button>
+                <Button x:Name="Green" Background="Green" Width="20" Height="20" Click="Green_Click" HorizontalAlignment="Left" Margin="5,2,0,0"></Button>
+                <Button x:Name="Cyan" Background="Cyan" Width="20" Height="20" Click="Cyan_Click" HorizontalAlignment="Left" Margin="27,-20,0,0"></Button>
+                <Button x:Name="Blue" Background="Blue" Width="20" Height="20" Click="Blue_Click" HorizontalAlignment="Left" Margin="49,-20,0,0"></Button>
+                <Button x:Name="Purple" Background="Purple" Width="20" Height="20" Click="Purple_Click" HorizontalAlignment="Left" Margin="5,2,0,0"></Button>
+                <Button x:Name="Black" Background="Black" Width="20" Height="20" Click="Black_Click" HorizontalAlignment="Left" Margin="27,-20,0,0"></Button>
+                <Button x:Name="White" Background="White" Width="20" Height="20" Click="White_Click" HorizontalAlignment="Left" Margin="49,-20,0,0"></Button>
+                
+                <TextBox x:Name="Height"></TextBox>
+                <TextBox x:Name="Width"></TextBox>
+                <Button Click="Button_Click">Изменить размер</Button>
+                <Separator Height="760" Background="{x:Null}" Foreground="{x:Null}"></Separator>
+                    <TextBlock FontSize="10">Create by Govnoeds</TextBlock>
+                
+                </StackPanel>
+        </DockPanel>
+        <InkCanvas x:Name="field" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes Color="Black" Width="10" Height="10"/>
+            </InkCanvas.DefaultDrawingAttributes>
+        </InkCanvas>
+        
+    </Grid>
+</Window>
